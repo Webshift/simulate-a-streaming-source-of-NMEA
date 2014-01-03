@@ -1,0 +1,22 @@
+Simulate a streaming source of NMEA,
+One is required to enter data NMEA data into a text file and the program will execute
+The program will read GPS data over a serial port ,saves the data to a text file , then the data is read from the text file ,parsed , and plotted on a map
+Install modules
+The following modules are a requirement for the scripts
+•	pyserial 
+•	Numpy (is a fundamental package needed for scientific computing with Python.)
+•	 matplotlib
+•	pynmea
+Once you have all of these modules installed without errors, you can execute the script and run the program with a pre-loaded map and GPS NMEA data to see how it works:
+Or you can proceed and create your own map and GPS NMEA data.
+Run the program
+Run the program by typing python gpsmap.py
+The program starts by getting some information from the user.
+You will select to either run the program with a GPS device connected or you can load your own GPS NMEA sentences into a file called nmea.txt. With GPS connected, you will select your COM port and be presented with two mapping options: 
+1.	a position map
+2.	an altitude map.
+Once you open the serial port to your GPS, the nmea.txt file will automatically be created and raw GPS NMEA data, specifically GPGGA sentences, will be logged in a private thread. When you make a map selection, the nmea.txt file is copied into a file called temp.txt, which is parsed for latitude and longitude (or altitude). The temp.txt file is created to parse the data so that we don't corrupt or happen to change the main nmea.txt log file. 
+The maps are generated in their own windows with options to save, zoom, and hover your mouse over points to get fine grain x,y coordinates. 
+Also, the maps don't refresh automatically, so as your GPS logs data, you will need to close the map window and run the map generation commands to get new data. If you close the entire Python program, the logging to nmea.txt halts. 
+This program isn't finished by any means. I found myself constantly wanting to add features and fix bugs. I binged on Python for a weekend, simply because there are so many modules to work with: GUI tools, interfacing to the web, etc. It is seriously addicting. If you have any modifications or suggestions, please feel free to leave them in the comments below. 
+
